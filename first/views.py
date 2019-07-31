@@ -8,13 +8,13 @@ from django.contrib import auth
 def main(request):
     # not logged in -> main.html
     if not request.user.is_authenticated:
-        return render(request, 'main.html')
+        return render(request, 'index.html')
     # logged in
     userId = request.user.username
     try:
         # profile O -> main.html
         prof = request.user.profile
-        return render(request, 'main.html')
+        return render(request, 'index.html')
     except:
         # profile X -> makeprofile -> profile.html
         return render(request,'profile.html')
